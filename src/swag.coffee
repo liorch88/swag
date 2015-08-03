@@ -28,7 +28,7 @@ Swag.addHelper = (name, helper, argTypes = []) ->
             resultArgs.push(arg)
         helper.apply @, resultArgs
 
-Swag.registerHelpers = (localHandlebars, blacklist = {}) ->
+Swag.registerHelpers = (localHandlebars, blacklist = []) ->
     if localHandlebars
         Swag.Handlebars = localHandlebars
     else
@@ -47,4 +47,4 @@ Swag.registerHelpers = (localHandlebars, blacklist = {}) ->
             Swag.Handlebars.registerHelper name, helper
 
     for name, helper of Swag.helpers
-        Swag.registerHelper name, helper unless (blacklist[name])
+        Swag.registerHelper name, helper unless name in blacklist
