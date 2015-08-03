@@ -35,6 +35,12 @@ instace available in the global context.
 
 This method must be called in order to use Swag helpers in you Handlebars templates.
 
+### Blacklisting a helper
+The register method can take an optional 2nd parameter that will be used as a "blacklist", of helpers you wish to ignore:
+
+    Swag.registerHelpers(window.Handlebars, ["formatDate", "ul"])
+    
+
 ## Context
 If you have functions in your template's context, Swag will execute the function and use the returned value inside the helper:
 
